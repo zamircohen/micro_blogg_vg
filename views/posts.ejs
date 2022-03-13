@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="background">
+        <div class="navbar">
+        <h2>Welcome to Cricket</h2>
+
+        <h3>Create your own account <a href="/signup">here</a>!</h3>
+
+        <button onclick="history.back()">Go Back</button>
+
+        <h1>The Latest Creets</h1>
+
+        </div>
+            <ul>
+                <% entries.forEach((item) => { %>
+                <li class="post"> 
+                    <a href="/users/<%= item.entryUser%>"><img src="/<%= item.entryPhoto %>" alt="profile photo" height="50px" width="50px"></a>
+                    <%= item.entry%> <i><small>- posted by <%= item.entryUser %></b></a> on <%= item.entryDateString %> </small></i>
+                </li>
+                <% }) %>
+                
+            </ul>
+    </div>
+
+
+
+    </div>
+
+<%- include("partials/footer.ejs") %>

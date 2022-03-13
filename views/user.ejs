@@ -1,0 +1,42 @@
+<%- include("partials/header.ejs") %>
+
+<div class="background">
+
+    <img src="/<%= userPosts[userPosts.length-1].entryPhoto %>" alt="A user profile photo" height="200px" width="200px" border-radius="50%">
+
+        <h2> Username: <%= userPosts[userPosts.length-1].entryUser %> </h2>
+        <h3> First name: <%= userPosts[userPosts.length-1].entryFirstname %> </h3>
+        <h3> Last name: <%= userPosts[userPosts.length-1].entryLastname %> </h3>
+        <h3> E-mail: <%= userPosts[userPosts.length-1].entryEmail %> </h3>
+
+        <br/>
+
+        <form action="/users/<%= userPosts[userPosts.length-1].entryUser %>" method="POST">
+            <button type="submit">Follow</button>
+        </form>
+
+        <form action="/remove/<%= userPosts[userPosts.length-1].entryUser %>" method="POST">
+            <button type="submit">Unfollow</button>
+        </form>
+
+
+        <button onclick="history.back()">Go Back</button>
+
+        <br/>
+
+
+
+        <h2> <%= userPosts[userPosts.length-1].entryUser%>´s creets</h2>
+
+        <ul>
+                <% userPosts.forEach((item) => { %>
+                <li class="post"> 
+                    <%= item.entry%> <i><small>- posted on <%= item.entryDateString %> </small></i>
+                </li>
+                <% }) %>
+        </ul>
+
+        
+    </div>
+
+<%- include("partials/footer.ejs") %>

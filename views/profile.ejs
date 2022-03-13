@@ -1,0 +1,74 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="background">
+        <div class="navbar">
+        <h1>User profile</h1>
+        <img src="/<%= profilePicture %>" alt="A user profile photo" height="200px" width="200px" border-radius="50%">
+
+        <h2> Username: <%= username %> </h2>
+        <h3> First name: <%= firstname %> </h3>
+        <h3> Last name: <%= lastname %> </h3>
+        <h3> E-mail: <%= email %> </h3>
+        <h3> Following <%= following.length %> other user(s) </h3>         
+        <h3> Followed by <%= followers %> user(s) </h3>
+        <br/>
+        
+        <button onclick="history.back()">Go Back</button>
+
+        <h1>Edit user profile</h1>
+
+        <h2>Photo upload</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input name="file" type="file">
+                <button type="submit">Upload file</button>
+        </form>
+
+        <form action="/edit_user" method="POST">
+                First name: <input type="text" name="firstname"><br/>
+                <br/>
+                Last name: <input type="text" name="lastname"><br/>
+                <br/>
+                E-mail: <input type="email" name="email"><br/>
+                <br/>
+                <button type="submit">Edit user</button>
+            </form>
+
+            <h1>All Creets</h1>
+
+
+        <ul>
+            <% entries.forEach((item) => { %>
+                <% if (item.entryUser === username) { %>
+            <li class="posts"> 
+                <img src="/<%= item.entryPhoto %>" alt="profile photo" height="50px" width="50px">
+                <%= item.entry%> <i><small>- posted on <%= item.entryDateString %> </small></i>
+            </li>
+            <% } %>  
+            <% }) %>
+        </ul>
+
+
+        <h1>Creeters I follow</h1>
+
+        <% following.forEach((user) => { %>
+            <span><h2> <%= user %> </h2></span>
+        <% }) %>
+
+        <h1>...and their posts...</h1>
+
+        <ul>
+            <% entries.forEach(item => { %>
+                <% if (following.includes(item.entryUser)) { %>
+            <li class="posts"> 
+                <img src="/<%= item.entryPhoto %>" alt="profile photo" height="50px" width="50px">
+                <%= item.entry%> <i><small>- posted by <%= item.entryUser %> on <%= item.entryDateString %> </small></i>
+            </li>
+            <% } %>  
+            <% }) %>
+        </ul>
+
+
+        </div>
+    </div>
+
+<%- include("partials/footer.ejs") %>

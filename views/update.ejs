@@ -1,0 +1,12 @@
+<%- include("partials/header.ejs") %>
+
+        <h1>Update user profile</h1>
+
+        <h2>Photo upload</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input name="file" type="file">
+                <button type="submit">Upload file</button>
+        </form>
+
+<%- include("partials/footer.ejs") %>
+                

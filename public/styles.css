@@ -1,0 +1,98 @@
+.login {
+    font-size: 32px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #f72585, #caf0f8)
+}
+
+.background {
+    /* background: linear-gradient(45deg, #f72585, #caf0f8); */
+    background-color: aliceblue;
+    width: 100%;
+    align-content: center;    
+}
+
+h1, h2, h3 {
+    color: blue;
+}
+
+p {
+    color: blue;
+}
+
+img {
+    border-radius: 50%;
+    vertical-align: middle;
+    padding: 10px
+}
+
+ul {
+    list-style-type: none;
+  }
+
+span.small {
+   font-size: small;
+}
+
+.row {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   width: 100%;
+}
+
+.column {
+   display: flex;
+   flex-direction: column;
+   flex-basis: 100%;
+   flex: 1;
+}
+
+.column-left {
+    flex-direction: column;
+    width: 25%;
+}
+
+.column-middle {
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+}
+
+.column-right {
+    flex-direction: column;
+    width: 25%;
+}
+
+.post {
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px;
+    width: 50%;
+    background-color: white;
+    opacity: 90%;    
+    position: relative;
+    display: block;
+    z-index: 0;
+}
+
+
+.navbar {
+    background-color: aliceblue;
+    position: sticky;
+    height: initial;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    top: 0;
+    margin: auto;
+    padding: none;
+    display: block;
+    z-index: 1;
+}

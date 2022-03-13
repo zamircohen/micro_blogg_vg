@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+        <h1>Create new account</h1>
+        <form method="POST">
+            First name:<input type="text" name="firstname"><br/>
+            <br/>
+            Last name:<input type="text" name="lastname"><br/>
+            <br/>
+            E-mail:<input type="email" name="email"><br/>
+            <br/>
+            Username: <input type="text" name="username" required><br/>
+            <br/>
+            Password: <input type="password" name="password" required><br/>
+            <br/>
+            <button type="submit">Create user</button>
+        </form>
+    
+<%- include("partials/footer.ejs") %>
